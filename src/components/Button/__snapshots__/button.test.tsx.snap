@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente Btn all tests Should render a react Button componente as primary type 1`] = `
+.c0 {
+  display: flex;
+  width: 140px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #00bfff;
+}
+
+.c0:hover {
+  opacity: 85%;
+  border: 1px solid lightgray;
+}
+
+<button
+  className="c0"
+  type="primary"
+>
+  Primary
+</button>
+`;

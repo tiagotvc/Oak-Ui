@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from "styled-components";
-import { ButtonProps } from "./button.utils";
 
 const gradient = keyframes`
   0%  {  background-position: 0% 50%;}
@@ -31,23 +30,12 @@ const typeStyles = {
   `,
 };
 
-export const BtnComponent = styled.button<ButtonProps>`
-  ${({ type }) => css`
+export const Container = styled.div`
+  ${() => css`
     display: flex;
-    width: 140px;
-    height: 35px;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    ${typeStyles[type]}
-    &:hover {
-      opacity: ${type !== 'gradient' ? '85%' : '100%'};
-      border: 1px solid lightgray;
-    }
+    width: 180px;
+    border-right: 1px solid lightgrey;
+    height: 100vh;
+    position: relative;
   `}
 `;
