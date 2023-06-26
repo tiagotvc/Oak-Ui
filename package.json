@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.2.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
     "react-test-renderer": "^18.2.0",
     "styled-components": "^6.0.0-rc.3",
@@ -24,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b master -d build"
   },
   "browserslist": {
     "production": [
@@ -52,5 +53,6 @@
     "jest-styled-components": "^7.1.1",
     "rollup": "^3.25.1",
     "rollup-plugin-dts": "^5.3.0"
-  }
+  },
+  "homepage": "https://tiagotvc.github.io"
 }

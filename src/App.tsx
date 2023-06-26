@@ -1,24 +1,47 @@
 import React from "react";
 import "./App.css";
-import { Button } from "./components/Button/button";
 import { Sidebar } from "./components/Sidebar/sidebar";
 import { List } from "./components/List/list";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./pages/routers";
+import { Snackbar } from "./components/Snackbar/snackbar";
+import { useSnackbar } from "./components/Snackbar/useSnackbar";
+import { ActionsContext } from "./contexts/actionsContext";
+import { Button } from "./components";
 
 function App() {
+  const { showSnackbar, isActive, message, snackbarType, autoHide, hideSnackbar } = useSnackbar();
+
   return (
-    <div className="App">
-      <Sidebar>
-        <List/>
-      </Sidebar>
-      <div className="middle">
-        <Button type="primary">Primary</Button>
-        <Button type="secondary">Secondary</Button>
-        <Button type="dark">Dark</Button>
-        <Button type="sucess">Sucess</Button>
-        <Button type="danger">Danger</Button>
-        <Button type="gradient">Gradient</Button>
+    <ActionsContext.Provider value={{ showSnackbar }}>
+      <div className="App">
+        <Button
+          type="primary"
+          onClick={() => showSnackbar({ message: "Tivemos um erro no servidor, por favor tente novamente mais tarde !", type: "error", autohide: true })}
+        >
+          Show Snackbar error
+        </Button>
+        <Button
+          type="secondary"
+          onClick={() => showSnackbar({ message: "Solicitação concluida com sucesso !", type: "sucess", autohide: true })}
+        >
+          Show Snackbar sucess
+        </Button>
+        <Snackbar
+          message={message as string}
+          active={isActive}
+          type={snackbarType}
+          autoHide={autoHide}
+          snackbarCallback={hideSnackbar}
+        />
+        <Sidebar>
+          <List />
+        </Sidebar>
+        <div className="middle">
+          <RouterProvider router={router} />
+        </div>
       </div>
-    </div>
+    </ActionsContext.Provider>
   );
 }
 
