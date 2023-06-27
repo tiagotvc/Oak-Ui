@@ -2,12 +2,13 @@ import React from "react";
 import "./App.css";
 import { Sidebar } from "./components/Sidebar/sidebar";
 import { List } from "./components/List/list";
-import { RouterProvider } from "react-router-dom";
 import { router } from "./pages/routers";
 import { Snackbar } from "./components/Snackbar/snackbar";
 import { useSnackbar } from "./components/Snackbar/useSnackbar";
 import { ActionsContext } from "./contexts/actionsContext";
 import { Button } from "./components";
+import { RouterProvider } from 'react-router-dom';
+import { Navbar } from "./components/Navbar/navbar";
 
 function App() {
   const { showSnackbar, isActive, message, snackbarType, autoHide, hideSnackbar } = useSnackbar();
@@ -15,6 +16,7 @@ function App() {
   return (
     <ActionsContext.Provider value={{ showSnackbar }}>
       <div className="App">
+        <Navbar infoWidget/>
         <Button
           type="primary"
           onClick={() => showSnackbar({ message: "Tivemos um erro no servidor, por favor tente novamente mais tarde !", type: "error", autohide: true })}
