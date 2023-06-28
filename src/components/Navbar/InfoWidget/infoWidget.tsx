@@ -1,8 +1,13 @@
-import React from 'react';
-import { Container } from './infoWidget.style';
-
-
+import React from "react";
+import { Container } from "./infoWidget.style";
+import { Typograph } from "../../Typograph/typograph";
 
 export const InfoWidget = () => {
-    return (<Container>Primeira vez aqui ? Conheça tudo sobre nós clicando aqui!</Container>)
-}
+  const information =
+    "Primeira vez aqui ? Conheça tudo sobre nós clicando aqui!";
+  return (
+    <Container>
+      <Typograph variant="body3">{information}</Typograph>
+    </Container>
+  );
+};

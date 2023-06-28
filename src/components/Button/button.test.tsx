@@ -8,9 +8,17 @@ describe("Componente Btn all tests", () => {
   it("Should render a react Button componente as primary type", () => {
     const onClickFn = jest.fn();
     const eventMock = { preventDefault: jest.fn() };
+    const animationMock = "none";
 
     //Render tests
-    render(<Button type="primary">Primary</Button>);
+    render(
+      <Button
+        type="primary"
+        animation={animationMock}
+      >
+        Primary
+      </Button>
+    );
     const primaryBtn = screen.getByText(/Primary/i);
     expect(primaryBtn).toBeVisible();
     expect(primaryBtn).toHaveAttribute("type", "primary");
@@ -19,7 +27,11 @@ describe("Componente Btn all tests", () => {
     //Styles tests
     const tree = renderer
       .create(
-        <Button type="primary" test-id="1">
+        <Button
+          type="primary"
+          test-id="1"
+          animation={animationMock}
+        >
           Primary
         </Button>
       )
@@ -30,7 +42,12 @@ describe("Componente Btn all tests", () => {
 
     //Functional tests
     const clickedBtn = renderer.create(
-      <Button type="primary" test-id="1" onClick={onClickFn}>
+      <Button
+        type="primary"
+        test-id="1"
+        onClick={onClickFn}
+        animation={animationMock}
+      >
         Primary
       </Button>
     ).root;
